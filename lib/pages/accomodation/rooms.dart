@@ -279,6 +279,7 @@ void showRoomDetailsBottomSheet(
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
+                      Navigator.pop(context);
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (BuildContext context) => const BookRoom(),
@@ -295,6 +296,7 @@ void showRoomDetailsBottomSheet(
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
+                      Navigator.pop(context);
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder:

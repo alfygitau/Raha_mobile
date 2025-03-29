@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_school/pages/accomodation/hostels.dart';
 import 'package:my_school/pages/homepage/admissions.dart';
 import 'package:my_school/pages/homepage/landing.dart';
+import 'package:my_school/pages/news/news.dart';
 import 'package:my_school/pages/profile/my_profile.dart';
 
 class MyHome extends StatefulWidget {
@@ -255,9 +256,18 @@ class _MyHomeState extends State<MyHome> {
                         text: "Hostels",
                       ),
                     ),
-                    const ContainerWidget(
-                      icon: Icons.new_releases_outlined,
-                      text: "News & Notices",
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (BuildContext context) => const News(),
+                          ),
+                        );
+                      },
+                      child: const ContainerWidget(
+                        icon: Icons.new_releases_outlined,
+                        text: "News & Notices",
+                      ),
                     ),
                     GestureDetector(
                       onTap: () {

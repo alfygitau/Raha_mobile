@@ -134,7 +134,7 @@ class _AdmissionsState extends State<Admissions> {
                     Expanded(
                       flex: 5,
                       child: Text(
-                        "Active Admissions",
+                        "Active Applications",
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
@@ -270,7 +270,7 @@ class _AdmissionsState extends State<Admissions> {
                     Expanded(
                       flex: 5,
                       child: Text(
-                        "Pending Admissions",
+                        "Pending Applications",
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
