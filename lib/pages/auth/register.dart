@@ -59,7 +59,7 @@ class _RegisterState extends State<Register> {
                         CustomInputField(
                           hintText: "Enter your username",
                           controller: emailController,
-                          prefixIcon: Icons.person_2_outlined,
+                          prefixIcon: Icons.person_3_outlined,
                         ),
                       ],
                     ),
@@ -80,7 +80,7 @@ class _RegisterState extends State<Register> {
                         CustomInputField(
                           hintText: "Enter your name",
                           controller: emailController,
-                          prefixIcon: Icons.person_2_outlined,
+                          prefixIcon: Icons.person_add_alt_outlined,
                         ),
                       ],
                     ),
@@ -101,7 +101,7 @@ class _RegisterState extends State<Register> {
                         CustomInputField(
                           hintText: "Enter your email",
                           controller: emailController,
-                          prefixIcon: Icons.person_2_outlined,
+                          prefixIcon: Icons.email_outlined,
                         ),
                       ],
                     ),
@@ -143,7 +143,7 @@ class _RegisterState extends State<Register> {
                         CustomPasswordField(
                           hintText: "Confirm your password",
                           controller: passwordController,
-                          prefixIcon: Icons.security,
+                          prefixIcon: Icons.security_rounded,
                         ),
                       ],
                     ),
