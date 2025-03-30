@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_school/pages/accomodation/rooms.dart';
 import 'package:my_school/pages/homepage/landing.dart';
+import 'package:my_school/pages/notifications/notifications.dart';
 
 class Hostels extends StatefulWidget {
   const Hostels({super.key});
@@ -135,7 +136,13 @@ class _HostelsState extends State<Hostels> {
             children: [
               IconButton(
                 icon: Image.asset('assets/images/notification.png', height: 30),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => const Notifications(),
+                    ),
+                  );
+                },
               ),
               Positioned(
                 right: 8,

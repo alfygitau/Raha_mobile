@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_school/pages/accomodation/hostels.dart';
+import 'package:my_school/pages/courses/courses.dart';
 import 'package:my_school/pages/homepage/admissions.dart';
 import 'package:my_school/pages/homepage/landing.dart';
 import 'package:my_school/pages/news/news.dart';
+import 'package:my_school/pages/notifications/notifications.dart';
 import 'package:my_school/pages/profile/my_profile.dart';
 
 class MyHome extends StatefulWidget {
@@ -66,7 +68,13 @@ class _MyHomeState extends State<MyHome> {
             children: [
               IconButton(
                 icon: Image.asset('assets/images/notification.png', height: 30),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => const Notifications(),
+                    ),
+                  );
+                },
               ),
               Positioned(
                 right: 8,
@@ -235,9 +243,18 @@ class _MyHomeState extends State<MyHome> {
                       icon: Icons.school_outlined,
                       text: "Faculty",
                     ),
-                    const ContainerWidget(
-                      icon: Icons.cast_for_education_outlined,
-                      text: "Courses",
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (BuildContext context) => const Courses(),
+                          ),
+                        );
+                      },
+                      child: const ContainerWidget(
+                        icon: Icons.cast_for_education_outlined,
+                        text: "Courses",
+                      ),
                     ),
                     const ContainerWidget(
                       icon: Icons.space_dashboard_outlined,

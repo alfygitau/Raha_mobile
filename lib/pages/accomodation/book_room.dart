@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_school/pages/accomodation/bookings.dart';
 import 'package:my_school/pages/homepage/landing.dart';
+import 'package:my_school/pages/notifications/notifications.dart';
 import 'package:my_school/reusables/my_inputs.dart';
 
 class BookRoom extends StatefulWidget {
@@ -67,7 +68,13 @@ class _BookRoomState extends State<BookRoom> {
             children: [
               IconButton(
                 icon: Image.asset('assets/images/notification.png', height: 30),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => const Notifications(),
+                    ),
+                  );
+                },
               ),
               Positioned(
                 right: 8,

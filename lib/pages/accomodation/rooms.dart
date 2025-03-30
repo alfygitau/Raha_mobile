@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:my_school/pages/accomodation/book_room.dart';
 import 'package:my_school/pages/accomodation/request_maintenance.dart';
 import 'package:my_school/pages/homepage/landing.dart';
+import 'package:my_school/pages/notifications/notifications.dart';
 
 class Rooms extends StatefulWidget {
   const Rooms({super.key});
@@ -65,7 +66,13 @@ class _RoomsState extends State<Rooms> {
             children: [
               IconButton(
                 icon: Image.asset('assets/images/notification.png', height: 30),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => const Notifications(),
+                    ),
+                  );
+                },
               ),
               Positioned(
                 right: 8,

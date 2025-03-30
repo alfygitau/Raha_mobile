@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_school/pages/homepage/landing.dart';
+import 'package:my_school/pages/notifications/notifications.dart';
 
 class MyProfile extends StatefulWidget {
   const MyProfile({super.key});
@@ -67,7 +68,13 @@ class _MyProfileState extends State<MyProfile> {
             children: [
               IconButton(
                 icon: Image.asset('assets/images/notification.png', height: 30),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => const Notifications(),
+                    ),
+                  );
+                },
               ),
               Positioned(
                 right: 8,

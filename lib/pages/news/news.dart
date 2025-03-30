@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_school/pages/homepage/landing.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:my_school/pages/notifications/notifications.dart';
 
 class News extends StatefulWidget {
   const News({super.key});
@@ -103,7 +104,13 @@ class _NewsState extends State<News> {
             children: [
               IconButton(
                 icon: Image.asset('assets/images/notification.png', height: 30),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => const Notifications(),
+                    ),
+                  );
+                },
               ),
               Positioned(
                 right: 8,

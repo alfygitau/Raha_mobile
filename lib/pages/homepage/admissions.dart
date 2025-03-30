@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_school/pages/homepage/landing.dart';
+import 'package:my_school/pages/notifications/notifications.dart';
 
 class Admissions extends StatefulWidget {
   const Admissions({super.key});
@@ -97,7 +98,13 @@ class _AdmissionsState extends State<Admissions> {
             children: [
               IconButton(
                 icon: Image.asset('assets/images/notification.png', height: 30),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => const Notifications(),
+                    ),
+                  );
+                },
               ),
               Positioned(
                 right: 8,
@@ -353,7 +360,7 @@ class _AdmissionsState extends State<Admissions> {
                             Container(
                               width: 2,
                               height: double.infinity,
-                              color: Colors.black,
+                              color: const Color(0xFF2D70E2),
                             ),
                             const SizedBox(width: 20),
                             Expanded(
