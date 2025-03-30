@@ -124,7 +124,7 @@ class _MyProfileState extends State<MyProfile> {
                         ),
                       ),
                       Positioned(
-                        child: Container(
+                        child: SizedBox(
                           height: 192,
                           width: 163,
                           child: Image.asset(
@@ -149,7 +149,7 @@ class _MyProfileState extends State<MyProfile> {
                       ),
                     ),
                     Text(
-                      "#141807956",
+                      "REG/3600/40",
                       style: TextStyle(
                         color: Color(0xFF2D70E2),
                         fontSize: 16,

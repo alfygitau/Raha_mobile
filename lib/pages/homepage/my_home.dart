@@ -146,7 +146,7 @@ class _MyHomeState extends State<MyHome> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           const Text(
-                            "#141807956",
+                            "REG/3600/40",
                             style: TextStyle(
                               color: Color(0xFF2D70E2),
                               fontWeight: FontWeight.w700,
