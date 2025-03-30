@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_school/pages/accomodation/hostels.dart';
 import 'package:my_school/pages/courses/courses.dart';
+import 'package:my_school/pages/faculties/faculties.dart';
 import 'package:my_school/pages/homepage/admissions.dart';
 import 'package:my_school/pages/homepage/landing.dart';
 import 'package:my_school/pages/news/news.dart';
@@ -239,9 +240,19 @@ class _MyHomeState extends State<MyHome> {
                   childAspectRatio: 98.33 / 96,
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
-                    const ContainerWidget(
-                      icon: Icons.school_outlined,
-                      text: "Faculty",
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder:
+                                (BuildContext context) => const Faculties(),
+                          ),
+                        );
+                      },
+                      child: const ContainerWidget(
+                        icon: Icons.school_outlined,
+                        text: "Faculty",
+                      ),
                     ),
                     GestureDetector(
                       onTap: () {
