@@ -162,9 +162,9 @@ class _AdmissionsState extends State<Admissions> {
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 10),
                       child: Container(
-                        height: 104,
+                        height: 94,
                         width: double.infinity,
-                        padding: const EdgeInsets.all(16),
+                        padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           color: const Color(0xFF2D70E2),
                           borderRadius: BorderRadius.circular(16),
@@ -176,8 +176,7 @@ class _AdmissionsState extends State<Admissions> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
                                     data["time"]!,
@@ -298,9 +297,9 @@ class _AdmissionsState extends State<Admissions> {
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 10),
                       child: Container(
-                        height: 104,
+                        height: 94,
                         width: double.infinity,
-                        padding: const EdgeInsets.all(16),
+                        padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(16),

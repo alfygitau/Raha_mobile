@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_school/pages/accomodation/hostels.dart';
+import 'package:my_school/pages/billings/invoices.dart';
 import 'package:my_school/pages/courses/courses.dart';
 import 'package:my_school/pages/faculties/faculties.dart';
 import 'package:my_school/pages/homepage/admissions.dart';
@@ -201,7 +202,7 @@ class _MyHomeState extends State<MyHome> {
                 ),
                 const SizedBox(height: 20),
                 Container(
-                  height: 112,
+                  height: 102,
                   width: double.infinity,
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
@@ -280,7 +281,7 @@ class _MyHomeState extends State<MyHome> {
                         );
                       },
                       child: const ContainerWidget(
-                        icon: Icons.security,
+                        icon: Icons.meeting_room_rounded,
                         text: "Hostels",
                       ),
                     ),
@@ -329,9 +330,18 @@ class _MyHomeState extends State<MyHome> {
                         text: "Profile",
                       ),
                     ),
-                    const ContainerWidget(
-                      icon: Icons.money_outlined,
-                      text: "Finances & Fees",
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (BuildContext context) => const Invoices(),
+                          ),
+                        );
+                      },
+                      child: const ContainerWidget(
+                        icon: Icons.money_outlined,
+                        text: "Finances & Fees",
+                      ),
                     ),
                     const ContainerWidget(
                       icon: Icons.document_scanner_outlined,

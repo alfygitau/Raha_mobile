@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'My School',
       theme: ThemeData(
-        fontFamily: 'Poppins',
+        fontFamily: 'NunitoSans',
         primaryColor: Colors.white,
         scaffoldBackgroundColor: Colors.white,
         colorScheme: ColorScheme.fromSwatch().copyWith(
