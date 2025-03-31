@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_school/pages/accomodation/hostels.dart';
 import 'package:my_school/pages/billings/invoices.dart';
 import 'package:my_school/pages/courses/courses.dart';
+import 'package:my_school/pages/examinations/examinations.dart';
 import 'package:my_school/pages/faculties/faculties.dart';
 import 'package:my_school/pages/homepage/admissions.dart';
 import 'package:my_school/pages/homepage/landing.dart';
@@ -343,9 +344,19 @@ class _MyHomeState extends State<MyHome> {
                         text: "Finances & Fees",
                       ),
                     ),
-                    const ContainerWidget(
-                      icon: Icons.document_scanner_outlined,
-                      text: "Examinations",
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder:
+                                (BuildContext context) => const Examinations(),
+                          ),
+                        );
+                      },
+                      child: const ContainerWidget(
+                        icon: Icons.document_scanner_outlined,
+                        text: "Examinations",
+                      ),
                     ),
                   ],
                 ),

@@ -1,72 +1,124 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class Transactions extends StatefulWidget {
-  const Transactions({super.key});
+class ExaminationResult extends StatefulWidget {
+  const ExaminationResult({super.key});
 
   @override
-  State<Transactions> createState() => _TransactionsState();
+  State<ExaminationResult> createState() => _ExaminationResultState();
 }
 
-class _TransactionsState extends State<Transactions> {
-  final List<Map<String, dynamic>> transactions = [
+class _ExaminationResultState extends State<ExaminationResult> {
+  final List<Map<String, dynamic>> units = [
     {
-      "transactionId": "RH40005854",
-      "amountPaid": 1200,
-      "status": "Pending",
-      "date": "5th March 2025",
+      "id": "1",
+      "studentId": "STU001",
+      "examId": "EXAM101",
+      "courseId": "CSE202",
+      "unitId": "UNIT301",
+      "unitName": "Data Structures",
+      "score": 28.5,
+      "grade": "A",
+      "isFinalized": true,
+      "createdAt": "2025-03-31T10:00:00Z",
     },
     {
-      "transactionId": "RH400052000",
-      "amountPaid": 800,
-      "status": "Paid",
-      "date": "10th April 2025",
+      "id": "2",
+      "studentId": "STU002",
+      "examId": "EXAM102",
+      "courseId": "CSE202",
+      "unitId": "UNIT302",
+      "unitName": "Database Systems",
+      "score": 15.0,
+      "grade": "B",
+      "isFinalized": true,
+      "createdAt": "2025-03-31T10:05:00Z",
     },
     {
-      "transactionId": "RH40006000",
-      "amountPaid": 1000,
-      "status": "Failed",
-      "date": "15th May 2025",
+      "id": "3",
+      "studentId": "STU003",
+      "examId": "EXAM103",
+      "courseId": "CSE202",
+      "unitId": "UNIT303",
+      "unitName": "Software Engineering",
+      "score": 22.0,
+      "grade": "A",
+      "isFinalized": true,
+      "createdAt": "2025-03-31T10:10:00Z",
     },
     {
-      "transactionId": "RH40005880",
-      "amountPaid": 2200,
-      "status": "Pending",
-      "date": "1st June 2025",
+      "id": "4",
+      "studentId": "STU004",
+      "examId": "EXAM104",
+      "courseId": "CSE202",
+      "unitId": "UNIT304",
+      "unitName": "Computer Networks",
+      "score": 22.5,
+      "grade": "B+",
+      "isFinalized": true,
+      "createdAt": "2025-03-31T10:15:00Z",
     },
     {
-      "transactionId": "RH40005890",
-      "amountPaid": 700,
-      "status": "Paid",
-      "date": "20th July 2025",
+      "id": "5",
+      "studentId": "STU005",
+      "examId": "EXAM105",
+      "courseId": "CSE202",
+      "unitId": "UNIT305",
+      "unitName": "Artificial Intelligence",
+      "score": 19.0,
+      "grade": "A",
+      "isFinalized": true,
+      "createdAt": "2025-03-31T10:20:00Z",
+    },
+    {
+      "id": "6",
+      "studentId": "STU006",
+      "examId": "EXAM106",
+      "courseId": "CSE202",
+      "unitId": "UNIT306",
+      "unitName": "Operating Systems",
+      "score": 18.0,
+      "grade": "C",
+      "isFinalized": true,
+      "createdAt": "2025-03-31T10:25:00Z",
+    },
+    {
+      "id": "7",
+      "studentId": "STU007",
+      "examId": "EXAM107",
+      "courseId": "CSE202",
+      "unitId": "UNIT307",
+      "unitName": "Cyber Security",
+      "score": 26.5,
+      "grade": "B+",
+      "isFinalized": true,
+      "createdAt": "2025-03-31T10:30:00Z",
     },
   ];
+
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.green),
+      value: SystemUiOverlayStyle.light.copyWith(
+        statusBarColor: const Color(0xFF2D70E2),
+      ),
       child: Scaffold(
         extendBodyBehindAppBar: true,
         backgroundColor: Colors.white,
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          backgroundColor: Colors.blue,
-          child: const Icon(Icons.attach_money, color: Colors.white),
-        ),
         body: SingleChildScrollView(
           child: Column(
             children: [
               Container(
                 height: 230,
                 width: double.infinity,
-                decoration: const BoxDecoration(color: Colors.green),
+                decoration: const BoxDecoration(color: Color(0xFF2D70E2)),
                 padding: const EdgeInsets.all(12),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: MediaQuery.of(context).padding.top),
                     const Text(
-                      "Tuition Fees",
+                      "CONTINOUS ASSESSMENT TEST 1",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
@@ -74,7 +126,7 @@ class _TransactionsState extends State<Transactions> {
                       ),
                     ),
                     const Text(
-                      "Year of Study: 1st Year 2nd Semester",
+                      "Bachelor of Science, Computer Science",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
@@ -82,19 +134,11 @@ class _TransactionsState extends State<Transactions> {
                       ),
                     ),
                     const Text(
-                      "Bachelor of Education, Arts",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 16,
-                      ),
-                    ),
-                    const Text(
-                      "Due Date: 12th April 2025",
+                      "5th April 2025",
                       style: TextStyle(
                         color: Colors.black54,
                         fontWeight: FontWeight.w700,
-                        fontSize: 14,
+                        fontSize: 16,
                       ),
                     ),
                   ],
@@ -127,7 +171,7 @@ class _TransactionsState extends State<Transactions> {
                             const Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                "My Fees Transactions",
+                                "Course units",
                                 style: TextStyle(
                                   color: Color(0xFF1F242C),
                                   fontSize: 16,
@@ -135,10 +179,9 @@ class _TransactionsState extends State<Transactions> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 5),
                             Column(
                               children:
-                                  transactions.map((unit) {
+                                  units.map((unit) {
                                     return GestureDetector(
                                       child: Container(
                                         height: 60,
@@ -163,69 +206,30 @@ class _TransactionsState extends State<Transactions> {
                                                   MainAxisAlignment.center,
                                               children: [
                                                 Text(
-                                                  unit["transactionId"]!,
+                                                  unit["unitId"],
                                                   style: const TextStyle(
-                                                    fontSize: 15,
+                                                    fontSize: 18,
                                                     fontWeight: FontWeight.bold,
-                                                    color: Colors.black54,
+                                                    color: Colors.black,
                                                     height: 1,
                                                   ),
                                                 ),
                                                 Text(
-                                                  'KES ${unit["amountPaid"].toString()}',
+                                                  unit["unitName"],
                                                   style: const TextStyle(
                                                     fontSize: 12,
-                                                    color: Colors.black,
-                                                    fontWeight: FontWeight.w700,
-                                                  ),
-                                                ),
-                                                Text(
-                                                  unit["date"]!,
-                                                  style: const TextStyle(
-                                                    fontSize: 11,
                                                     color: Colors.black54,
                                                   ),
                                                 ),
                                               ],
                                             ),
-                                            Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Container(
-                                                  width: 60,
-                                                  padding:
-                                                      const EdgeInsets.symmetric(
-                                                        horizontal: 10,
-                                                        vertical: 2,
-                                                      ),
-                                                  decoration: BoxDecoration(
-                                                    color:
-                                                        unit['status'] ==
-                                                                'Pending'
-                                                            ? Colors.yellow
-                                                            : unit['status'] ==
-                                                                'Failed'
-                                                            ? Colors.red
-                                                            : Colors.green,
-                                                  ),
-                                                  child: Center(
-                                                    child: Text(
-                                                      unit['status'],
-                                                      style: TextStyle(
-                                                        color:
-                                                            unit['status'] ==
-                                                                    'Pending'
-                                                                ? Colors.black
-                                                                : Colors.white,
-                                                        fontSize: 10,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
+                                             Text(
+                                              unit['score'].toString(),
+                                              style: const TextStyle(
+                                                color: Color(0xFF2D70E2),
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.w700,
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -261,7 +265,7 @@ class _TransactionsState extends State<Transactions> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    "Amount Paid",
+                                    "Assess. Time",
                                     style: TextStyle(
                                       color: Colors.grey,
                                       fontSize: 13,
@@ -271,7 +275,7 @@ class _TransactionsState extends State<Transactions> {
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                   Text(
-                                    "KES 1500",
+                                    "1 Hours",
                                     style: TextStyle(
                                       color: Colors.green,
                                       fontSize: 15,
@@ -303,9 +307,9 @@ class _TransactionsState extends State<Transactions> {
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                   Text(
-                                    "Pending",
+                                    "Done",
                                     style: TextStyle(
-                                      color: Colors.yellow,
+                                      color: Colors.green,
                                       fontSize: 15,
                                       fontWeight: FontWeight.w700,
                                     ),
@@ -325,7 +329,7 @@ class _TransactionsState extends State<Transactions> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    "Total Amount",
+                                    "Max Score",
                                     style: TextStyle(
                                       color: Colors.grey,
                                       fontSize: 13,
@@ -335,7 +339,7 @@ class _TransactionsState extends State<Transactions> {
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                   Text(
-                                    "KES 10,000",
+                                    "30",
                                     style: TextStyle(
                                       color: Colors.green,
                                       fontSize: 15,
