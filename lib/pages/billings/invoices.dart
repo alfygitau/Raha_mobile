@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_school/pages/billings/transactions.dart';
 import 'package:my_school/pages/homepage/landing.dart';
 import 'package:my_school/pages/notifications/notifications.dart';
 
@@ -25,6 +26,11 @@ class _InvoicesState extends State<Invoices> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFEEF2FA),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.blue,
+        child: const Icon(Icons.attach_money, color: Colors.white),
+      ),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: const Color(0xFFEEF2FA),
@@ -111,6 +117,85 @@ class _InvoicesState extends State<Invoices> {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               children: [
+                Container(
+                  height: 100,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 5,
+                  ),
+                  width: double.infinity,
+                  decoration: const BoxDecoration(color: Colors.white),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "MY BALANCE : KES 1,200",
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                              height: 1,
+                            ),
+                          ),
+                          Text(
+                            "Amount Paid : KES 8,800",
+                            style: TextStyle(
+                              color: Colors.black54,
+                              fontSize: 13,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          Text(
+                            "Total Amount : KES 10,000",
+                            style: TextStyle(
+                              color: Colors.black54,
+                              fontSize: 13,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          Text(
+                            "5th March 2025",
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 13,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 2,
+                            ),
+                            decoration: const BoxDecoration(
+                              color: Colors.yellow,
+                            ),
+                            child: const Center(
+                              child: Text(
+                                "Not Cleared",
+                                style: TextStyle(
+                                  color: Colors.black,
+
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 20),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -129,81 +214,93 @@ class _InvoicesState extends State<Invoices> {
                 Column(
                   children:
                       invoices.map((invoice) {
-                        return Container(
-                          height: 85,
-                          width: double.infinity,
-                          margin: const EdgeInsets.only(
-                            bottom: 8,
-                          ), // Space between invoices
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 10,
-                          ),
-                          decoration: const BoxDecoration(color: Colors.white),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Container(
-                                    width: 5,
-                                    height: double.infinity,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          invoice["status"] == "Paid"
-                                              ? Colors.green
-                                              : const Color(
-                                                0xFF2D70E2,
-                                              ), // Green for paid, blue for pending
-                                      borderRadius: BorderRadius.circular(10),
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder:
+                                    (BuildContext context) =>
+                                        const Transactions(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            height: 85,
+                            width: double.infinity,
+                            margin: const EdgeInsets.only(bottom: 8),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 10,
+                            ),
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      width: 5,
+                                      height: double.infinity,
+                                      decoration: BoxDecoration(
+                                        color:
+                                            invoice["status"] == "Paid"
+                                                ? Colors.green
+                                                : const Color(
+                                                  0xFF2D70E2,
+                                                ), // Green for paid, blue for pending
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
                                     ),
-                                  ),
-                                  const SizedBox(width: 15),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        invoice["title"]!,
-                                        style: const TextStyle(
-                                          color: Colors.black54,
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w700,
+                                    const SizedBox(width: 15),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          invoice["title"]!,
+                                          style: const TextStyle(
+                                            color: Colors.black54,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w700,
+                                          ),
                                         ),
-                                      ),
-                                      Text(
-                                        "Status: ${invoice["status"]}",
-                                        style: TextStyle(
-                                          color:
-                                              invoice["status"] == "Paid"
-                                                  ? Colors.green
-                                                  : Colors.yellow,
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w700,
+                                        Text(
+                                          "Status: ${invoice["status"]}",
+                                          style: TextStyle(
+                                            color:
+                                                invoice["status"] == "Paid"
+                                                    ? Colors.green
+                                                    : Colors.yellow,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w700,
+                                          ),
                                         ),
-                                      ),
-                                      Text(
-                                        invoice["date"]!,
-                                        style: const TextStyle(
-                                          color: Colors.black54,
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w700,
+                                        Text(
+                                          invoice["date"]!,
+                                          style: const TextStyle(
+                                            color: Colors.black54,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w700,
+                                          ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                size: 32,
-                                color:
-                                    invoice["status"] == "Paid"
-                                        ? Colors.green
-                                        : const Color(0xFF2D70E2),
-                              ),
-                            ],
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Icon(
+                                  Icons.arrow_forward_ios,
+                                  size: 32,
+                                  color:
+                                      invoice["status"] == "Paid"
+                                          ? Colors.green
+                                          : const Color(0xFF2D70E2),
+                                ),
+                              ],
+                            ),
                           ),
                         );
                       }).toList(),

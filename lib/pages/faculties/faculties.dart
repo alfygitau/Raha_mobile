@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_school/pages/departments/departments.dart';
 import 'package:my_school/pages/homepage/landing.dart';
 import 'package:my_school/pages/notifications/notifications.dart';
 
@@ -10,6 +11,16 @@ class Faculties extends StatefulWidget {
 }
 
 class _FacultiesState extends State<Faculties> {
+  final List<Map<String, String>> faculties = [
+    {"title": "Engineering", "imageUrl": "assets/images/engineering.jpg"},
+    {"title": "Medicine", "imageUrl": "assets/images/medicine.jpg"},
+    {"title": "Law", "imageUrl": "assets/images/law.webp"},
+    {"title": "Business", "imageUrl": "assets/images/business.avif"},
+    {"title": "Agriculture", "imageUrl": "assets/images/agriculture.jpg"},
+    {"title": "Arts", "imageUrl": "assets/images/arts.jpg"},
+    {"title": "Science", "imageUrl": "assets/images/science.jpeg"},
+    {"title": "Education", "imageUrl": "assets/images/education.png"},
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -123,40 +134,26 @@ class _FacultiesState extends State<Faculties> {
                   mainAxisSpacing: 10,
                   crossAxisSpacing: 10,
                   childAspectRatio: 1,
-                  children: const [
-                    FacultyCard(
-                      title: "Engineering",
-                      imageUrl: "assets/images/engineering.jpg",
-                    ),
-                    FacultyCard(
-                      title: "Medicine",
-                      imageUrl: "assets/images/medicine.jpg",
-                    ),
-                    FacultyCard(
-                      title: "Law",
-                      imageUrl: "assets/images/arts.jpg",
-                    ),
-                    FacultyCard(
-                      title: "Business",
-                      imageUrl: "assets/images/business.avif",
-                    ),
-                    FacultyCard(
-                      title: "Agriculture",
-                      imageUrl: "assets/images/agriculture.jpg",
-                    ),
-                    FacultyCard(
-                      title: "Arts",
-                      imageUrl: "assets/images/arts.jpg",
-                    ),
-                    FacultyCard(
-                      title: "Science",
-                      imageUrl: "assets/images/science.jpeg",
-                    ),
-                    FacultyCard(
-                      title: "Education",
-                      imageUrl: "assets/images/arts.jpg",
-                    ),
-                  ],
+                  children:
+                      faculties
+                          .map(
+                            (faculty) => GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder:
+                                        (BuildContext context) =>
+                                            const Departments(),
+                                  ),
+                                );
+                              },
+                              child: FacultyCard(
+                                title: faculty["title"]!,
+                                imageUrl: faculty["imageUrl"]!,
+                              ),
+                            ),
+                          )
+                          .toList(),
                 ),
               ],
             ),
