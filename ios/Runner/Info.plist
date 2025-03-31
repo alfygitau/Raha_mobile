@@ -24,26 +24,83 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>CADisableMinimumFrameDurationOnPhone</key>
-	<true/>
-	<key>UIApplicationSupportsIndirectInputEvents</key>
-	<true/>
+	<key>NSCameraUsageDescription</key>
+    <string>We need access to your camera to allow you to take photos directly within the app.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Your custom message explaining why the app needs access to the microphone.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>We need access to your photo library to allow you to upload images.</string>
+    <key>UIApplicationSupportsIndirectInputEvents</key>
+    <true/>
+    <key>UILaunchStoryboardName</key>
+    <string>LaunchScreen</string>
+    <key>UIMainStoryboardFile</key>
+    <string>Main</string>
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationPortraitUpsideDown</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>NSFaceIDUsageDescription</key>
+    <string>We use Face ID to secure your account.</string>
+
+    <!-- Location Permissions -->
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>This app requires access to your location while in use.</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>This app requires access to your location at all times.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>This app needs your location to provide relevant services.</string>
+
+    <!-- Contacts Permissions -->
+    <key>NSContactsUsageDescription</key>
+    <string>This app requires access to your contacts for syncing with your account.</string>
+
+    <!-- Reminders Permissions -->
+    <key>NSRemindersUsageDescription</key>
+    <string>This app requires access to your reminders for scheduling tasks.</string>
+
+    <!-- Bluetooth Permissions -->
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>This app requires access to Bluetooth for connecting to devices.</string>
+    <key>NSBluetoothPeripheralUsageDescription</key>
+    <string>This app requires access to Bluetooth to connect to nearby devices for enhanced functionality.</string>
+
+    <!-- Motion/Sensors Permissions -->
+    <key>NSMotionUsageDescription</key>
+    <string>This app requires access to your sensors to track motion and steps.</string>
+
+    <!-- Media Permissions -->
+    <key>NSAppleMusicUsageDescription</key>
+    <string>This app requires access to your media library to play music.</string>
+
+    <!-- Tracking Permissions -->
+    <key>NSUserTrackingUsageDescription</key>
+    <string>This app requires access to your device's tracking information for personalized ads.</string>
+    <key>NSAppTrackingTransparencyUsageDescription</key>
+    <string>This app requires permission to track your activity across other companies’ apps and websites for ads.</string>
+
+    <!-- Speech Recognition Permissions -->
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>This app requires access to speech recognition for voice commands and dictation features in the app.</string>
+
+    <!-- Siri Permissions -->
+    <key>NSSiriUsageDescription</key>
+    <string>This app requires access to Siri for voice-activated features in the app.</string>
+
+    <!-- Background Location Usage -->
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>location</string>
+        <string>fetch</string>
+    </array>
 </dict>
 </plist>
