@@ -1,8 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_instance/src/bindings_interface.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:my_school/controller/dependancy_injection.dart';
 import 'package:my_school/pages/welcome/welcome.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  // Ensure the bindings are initialized before using async operations
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize dependency injection
+  DependencyInjection.init();
+
+  // Load environment variables
+  await dotenv.load(fileName: ".env");
+
+  // Run the app after all initializations are complete
+  runApp(
+    GetMaterialApp(
+      initialBinding: BindingsBuilder(() {
+        // Add necessary bindings here
+      }),
+      home: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

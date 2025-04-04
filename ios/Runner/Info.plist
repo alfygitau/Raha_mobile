@@ -102,5 +102,7 @@
         <string>location</string>
         <string>fetch</string>
     </array>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
 </dict>
 </plist>

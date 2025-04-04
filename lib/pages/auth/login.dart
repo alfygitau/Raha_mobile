@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:my_school/pages/auth/register.dart';
 import 'package:my_school/pages/homepage/landing.dart';
 import 'package:my_school/reusables/my_inputs.dart';
+import 'package:my_school/services/auth.service.dart';
+import 'package:my_school/services/toast.service.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -14,6 +16,29 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  void login() async {
+    try {
+      final response = await AuthService().login(
+        emailController.text,
+        passwordController.text,
+      );
+      if (response['success']) {
+        await AuthService().storeUserCredentials(
+          response['token'],
+          response['user'],
+        );
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (BuildContext context) => const Landing()),
+        );
+      } else {
+        ToastService().showToast(response['message'], isError: true);
+      }
+    } catch (e) {
+      ToastService().showToast(e.toString(), isError: true);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,12 +144,7 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                         onPressed: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder:
-                                  (BuildContext context) => const Landing(),
-                            ),
-                          );
+                          login();
                         },
                         child: const Text(
                           "Login",
@@ -132,7 +152,7 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10,),
+                    const SizedBox(height: 10),
                     RichText(
                       text: TextSpan(
                         text: "Don't have an account? ",

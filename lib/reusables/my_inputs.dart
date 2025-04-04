@@ -50,7 +50,7 @@ class CustomInputField extends StatelessWidget {
           vertical: 16,
         ),
       ),
-      cursorColor: Colors.white,
+      cursorColor: Colors.black,
       style: const TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.w400,
@@ -131,11 +131,11 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
           },
         ),
       ),
-      cursorColor: Colors.white,
+      cursorColor: Colors.black,
       style: const TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.w400,
-        color: Colors.white,
+        color: Colors.black,
       ),
     );
   }

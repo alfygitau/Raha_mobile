@@ -9,6 +9,7 @@ import 'package:my_school/pages/homepage/landing.dart';
 import 'package:my_school/pages/news/news.dart';
 import 'package:my_school/pages/notifications/notifications.dart';
 import 'package:my_school/pages/profile/my_profile.dart';
+import 'package:my_school/services/auth.service.dart';
 
 class MyHome extends StatefulWidget {
   const MyHome({super.key});
@@ -18,8 +19,27 @@ class MyHome extends StatefulWidget {
 }
 
 class _MyHomeState extends State<MyHome> {
+  Map<String, dynamic>? userInfo;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUser();
+  }
+
+  void _loadUser() async {
+    final user = await AuthService().getUser();
+    if (user != null) {
+      setState(() {
+        userInfo = user;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    String phone = userInfo?['mobileNumber'];
+    String lastThree = phone.substring(phone.length - 3);
     return Scaffold(
       backgroundColor: const Color(0xFFEEF2FA),
       appBar: AppBar(
@@ -100,6 +120,20 @@ class _MyHomeState extends State<MyHome> {
               ),
             ],
           ),
+          IconButton(
+            icon: const Icon(
+              Icons.person_3_rounded,
+              size: 30,
+              color: Color(0xFF2D70E2),
+            ),
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) => const MyProfile(),
+                ),
+              );
+            },
+          ),
         ],
       ),
       body: SafeArea(
@@ -128,7 +162,7 @@ class _MyHomeState extends State<MyHome> {
                           ),
                         ),
                         Positioned(
-                          child: Container(
+                          child: SizedBox(
                             height: 192,
                             width: 163,
                             child: Image.asset(
@@ -147,18 +181,18 @@ class _MyHomeState extends State<MyHome> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          const Text(
-                            "REG/3600/40",
-                            style: TextStyle(
+                          Text(
+                            userInfo?['registrationNumber'] ?? "N/A",
+                            style: const TextStyle(
                               color: Color(0xFF2D70E2),
                               fontWeight: FontWeight.w700,
                               fontSize: 16,
                             ),
                           ),
                           const SizedBox(height: 10),
-                          const Text(
-                            "Alfred Kariuki Gitau",
-                            style: TextStyle(
+                          Text(
+                            userInfo?['name'] ?? "N/A",
+                            style: const TextStyle(
                               color: Color(0xFF1F242C),
                               fontSize: 24,
                               fontWeight: FontWeight.w700,
@@ -168,9 +202,9 @@ class _MyHomeState extends State<MyHome> {
                             overflow: TextOverflow.visible,
                           ),
                           const SizedBox(height: 10),
-                          const Text(
-                            "alfygitau@gmail.com",
-                            style: TextStyle(
+                          Text(
+                            userInfo?['email'] ?? "N/A",
+                            style: const TextStyle(
                               color: Colors.grey,
                               fontSize: 15,
                               fontWeight: FontWeight.w700,
@@ -184,9 +218,9 @@ class _MyHomeState extends State<MyHome> {
                             children: [
                               Image.asset("assets/images/teacher.png"),
                               const SizedBox(width: 10),
-                              const Text(
-                                "254*******436",
-                                style: TextStyle(
+                              Text(
+                                "254*******$lastThree",
+                                style: const TextStyle(
                                   color: Color(0xFF4086FE),
                                   fontSize: 14,
                                   fontWeight: FontWeight.w700,
